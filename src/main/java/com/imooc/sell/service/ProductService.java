@@ -2,7 +2,6 @@ package com.imooc.sell.service;
 
 import com.imooc.sell.dataobject.ProductInfo;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 /**
@@ -20,7 +19,7 @@ public interface ProductService {
      */
     List<ProductInfo> findUpAll();
 
-    List<ProductInfo> findAll(org.springframework.data.domain.Pageable pageable);
+    org.springframework.data.domain.Page<ProductInfo> findAll(org.springframework.data.domain.Pageable pageable);
 
     ProductInfo save(ProductInfo productInfo);
 
