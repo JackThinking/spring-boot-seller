@@ -5,6 +5,8 @@ import com.imooc.sell.dataobject.OrderMaster;
 import com.imooc.sell.dataobject.ProductInfo;
 import com.imooc.sell.dto.CartDTO;
 import com.imooc.sell.dto.OrderDTO;
+import com.imooc.sell.enums.OrderStatusEnum;
+import com.imooc.sell.enums.PayStatusEnum;
 import com.imooc.sell.enums.ResultEnum;
 import com.imooc.sell.exception.SellException;
 import com.imooc.sell.repository.OrderDetailRepository;
@@ -18,6 +20,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +42,7 @@ public class OrderServiceImpl implements OrderService{
     private OrderMasterRepository orderMasterRepository;
 
     @Override
+    @Transactional
     public OrderDTO create(OrderDTO orderDTO) {
 
 
@@ -53,7 +57,7 @@ public class OrderServiceImpl implements OrderService{
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
             //2. 计算订单总价
-            orderAmount = orderDetail.getProductPrice()
+            orderAmount = productInfo.getProductPrice()//这边本来是从orderDetail里面取的（但是里面是没有价格的）后面改成了productinfo
                     .multiply(new BigDecimal(orderDetail.getProductQuantity()))
                     .add(orderAmount);
 
@@ -70,9 +74,13 @@ public class OrderServiceImpl implements OrderService{
 
         //3. 写入订单数据库（orderMaster和orderDetail）
         OrderMaster orderMaster = new OrderMaster();
+        BeanUtils.copyProperties(orderDTO,orderMaster);//这句话的顺序很重要
         orderMaster.setOrderId(orderId);
         orderMaster.setOrderAmount(orderAmount);
-        BeanUtils.copyProperties(orderDTO,orderMaster);
+        //这两句话后面出bug新加的，之后要好好分析
+        orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
+        orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
+
         orderMasterRepository.save(orderMaster);
 
         //4. 扣库存
@@ -80,7 +88,7 @@ public class OrderServiceImpl implements OrderService{
                 .map(e->new CartDTO(e.getProductId(),e.getProductQuantity()))
                 .collect(Collectors.toList());
         productService.decreaseStock(cartDTOList);
-        return null;
+        return orderDTO;
     }
 
     @Override
