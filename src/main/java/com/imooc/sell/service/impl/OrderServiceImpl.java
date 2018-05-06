@@ -80,8 +80,9 @@ public class OrderServiceImpl implements OrderService{
 
         //3. 写入订单数据库（orderMaster和orderDetail）
         OrderMaster orderMaster = new OrderMaster();
+        /*这边拷贝属性的位置又出错了*/
+        orderDTO.setOrderId(orderId);
         BeanUtils.copyProperties(orderDTO,orderMaster);//这句话的顺序很重要
-        orderMaster.setOrderId(orderId);
         orderMaster.setOrderAmount(orderAmount);
         //这两句话后面出bug新加的，之后要好好分析
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());

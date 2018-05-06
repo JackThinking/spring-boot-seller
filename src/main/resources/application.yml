@@ -6,6 +6,8 @@ spring:
     url: jdbc:mysql://121.248.54.12/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
+  jackson:
+    default-property-inclusion: non_null
 server:
   servlet:
     context-path: /sell
