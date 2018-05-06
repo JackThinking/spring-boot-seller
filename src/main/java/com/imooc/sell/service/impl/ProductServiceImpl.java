@@ -45,11 +45,26 @@ public class ProductServiceImpl implements ProductService{
         return repository.save(productInfo);
     }
 
+    /**
+     * @author Citrix
+     * @date 2018/5/6 上午11:18
+     * @param [cartDTOList]
+     * @return void
+     */
     @Override
+    @Transactional
     public void increaseStock(List<CartDTO> cartDTOList) {
+        for (CartDTO cartDTO : cartDTOList) {
+            ProductInfo productInfo = repository.findById(cartDTO.getProductId()).get();
+            if (productInfo == null) {
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+            Integer result = productInfo.getProductStock() + cartDTO.getProductQuantity();
+            productInfo.setProductStock(result);
 
+            repository.save(productInfo);
+        }
     }
-
     @Override
     @Transactional
     public void decreaseStock(List<CartDTO> cartDTOList) {
