@@ -51,8 +51,9 @@ public class OrderServiceImpl implements OrderService{
     @Transactional
     public OrderDTO create(OrderDTO orderDTO) {
 
-
+        /*生成随机数当做订单id*/
         String orderId = KeyUtil.getUniqueKey();
+        /*计算下单的总额*/
         BigDecimal orderAmount = new BigDecimal(0);
 //        List<CartDTO> cartDTOList = new ArrayList<>();
 

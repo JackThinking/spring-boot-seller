@@ -18,3 +18,4 @@ wechat:
   mchId: 1483469312
   mchKey: C5245D70627C1F8E9964D494B0735025
   keyPath:  C:/Users/Hasee/Desktop/SpringBoot_Wechat_Sell/src/main/resources/h5.p12
+  notifyUrl: http://citrix.natapp1.cc/notify

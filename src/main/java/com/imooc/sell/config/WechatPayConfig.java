@@ -31,6 +31,7 @@ public class WechatPayConfig {
         wxPayH5Config.setMchId(wechatAccountConfig.getMchId());
         wxPayH5Config.setMchKey(wechatAccountConfig.getMchKey());
         wxPayH5Config.setKeyPath(wechatAccountConfig.getKeyPath());
+        wxPayH5Config.setNotifyUrl(wechatAccountConfig.getNotifyUrl());//这边没法测试，因为没有支付账号
 
 
         // 测试支付  由于我是买的支付账号 和微信授权登陆账号不是一个账号，所以没有使用动态注入
