@@ -6,7 +6,7 @@ import lombok.Getter;
  * Created by Citrix on 2018/5/4.
  */
 @Getter//也是lombak的好东西
-public enum ProductStatusEnum {
+public enum ProductStatusEnum implements CodeEnum{
     UP(0,"在架"),
     DOWN(1,"下架")
     ;
