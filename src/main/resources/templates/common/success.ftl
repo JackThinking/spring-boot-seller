@@ -1,6 +1,6 @@
 <html>
 <body>
-
+<#include "../common/header.ftl">
 <div class="container">
     <div class="row clearfix">
         <div class="col-md-12 column">

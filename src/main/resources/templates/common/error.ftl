@@ -1,5 +1,5 @@
 <html>
-
+<#include "../common/header.ftl">
 <body>
 
 <div class="container">
