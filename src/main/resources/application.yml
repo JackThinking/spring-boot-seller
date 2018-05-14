@@ -15,7 +15,14 @@ server:
 wechat:
   mpAppid: wxf98e335974fbfa76
   mpAppSecret: 7aee54b6a921a28f8f53c03590d05b20
+  mpAppId: wx0465fe3767346d03
+  mpAppSecret: 98f3f91786611085871483c1b799aaf5
   mchId: 1483469312
   mchKey: C5245D70627C1F8E9964D494B0735025
   keyPath:  C:/Users/Hasee/Desktop/SpringBoot_Wechat_Sell/src/main/resources/h5.p12
   notifyUrl: http://citrix.natapp1.cc/notify
+
+projecturl:
+  wechatMpAuthorize: http://citrix.natapp1.cc
+  wechatOpenAuthorize: http://citrix.natapp1.cc
+  sell: http://localhost:8080
