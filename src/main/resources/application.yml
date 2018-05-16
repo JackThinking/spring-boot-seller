@@ -24,6 +24,9 @@ wechat:
   mchKey: C5245D70627C1F8E9964D494B0735025
   keyPath:  C:/Users/Hasee/Desktop/SpringBoot_Wechat_Sell/src/main/resources/h5.p12
   notifyUrl: http://citrix.natapp1.cc/notify
+  templateId:
+    orderStatus: kahmCfZjV-2jORZ4yFti9-69smaV3gQ1lFFCDKL_vjI
+    payStatus: kahmCfZjV-2jORZ4yFti9-69smaV3gQ1lFFCDKL_vjI
 
 projecturl:
   wechatMpAuthorize: http://citrix.natapp1.cc

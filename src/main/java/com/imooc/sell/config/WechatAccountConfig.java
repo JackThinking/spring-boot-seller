@@ -46,4 +46,6 @@ public class WechatAccountConfig {
     * 微信支付异步通知
     */
     private String notifyUrl;
+
+    private Map<String, String> templateId;
 }
