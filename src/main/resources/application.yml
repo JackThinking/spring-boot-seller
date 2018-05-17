@@ -3,13 +3,13 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://121.248.55.4/sell?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://121.248.54.75/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
   redis:
-    host: 121.248.55.4
+    host: 121.248.54，75
     port: 6379
 server:
   servlet:
@@ -18,15 +18,15 @@ server:
 wechat:
   mpAppid: wxf98e335974fbfa76
   mpAppSecret: 7aee54b6a921a28f8f53c03590d05b20
-  mpAppId: wx0465fe3767346d03
-  mpAppSecret: 98f3f91786611085871483c1b799aaf5
+  openAppId: wx0465fe3767346d03
+  openAppSecret: 98f3f91786611085871483c1b799aaf5
   mchId: 1483469312
   mchKey: C5245D70627C1F8E9964D494B0735025
   keyPath:  C:/Users/Hasee/Desktop/SpringBoot_Wechat_Sell/src/main/resources/h5.p12
   notifyUrl: http://citrix.natapp1.cc/notify
   templateId:
-    orderStatus: kahmCfZjV-2jORZ4yFti9-69smaV3gQ1lFFCDKL_vjI
-    payStatus: kahmCfZjV-2jORZ4yFti9-69smaV3gQ1lFFCDKL_vjI
+    orderStatus: VEMRn8hB0WBYnIffpn50_aVrPvEjxdKhBgMUHwY0rUU
+    payStatus: VEMRn8hB0WBYnIffpn50_aVrPvEjxdKhBgMUHwY0rUU
 
 projecturl:
   wechatMpAuthorize: http://citrix.natapp1.cc

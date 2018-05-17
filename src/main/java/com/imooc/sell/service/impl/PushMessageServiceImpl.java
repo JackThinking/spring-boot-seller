@@ -34,10 +34,11 @@ public class PushMessageServiceImpl implements PushMessageService {
         WxMpTemplateMessage wxMpTemplateMessage = new WxMpTemplateMessage();
         wxMpTemplateMessage.setTemplateId(wechatAccountConfig.getTemplateId().get("orderStatus"));
         wxMpTemplateMessage.setToUser(orderDTO.getBuyerOpenid());
+        //wxMpTemplateMessage.setToUser("oAmwM1O13pEv0_deQGejwSdIZ-h4");
 
         List<WxMpTemplateData> data = Arrays.asList(
                 new WxMpTemplateData("first", "亲，请记得收货。"),
-                new WxMpTemplateData("keyword1", "微信点餐(ldlood店铺)"),
+                new WxMpTemplateData("keyword1", "微信点餐(Citrix店铺)"),
                 new WxMpTemplateData("keyword2", "18576649086"),
                 new WxMpTemplateData("keyword3", orderDTO.getOrderId()),
                 new WxMpTemplateData("keyword4", orderDTO.getOrderStatusEnum().getMsg()),
